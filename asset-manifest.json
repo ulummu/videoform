@@ -1,16 +1,16 @@
 {
   "files": {
-    "main.css": "/videoform/static/css/main.7d30c530.css",
-    "main.js": "/videoform/static/js/main.e0fcfd91.js",
+    "main.css": "/videoform/static/css/main.6820328a.css",
+    "main.js": "/videoform/static/js/main.ad0e6582.js",
     "static/media/bootstrap-icons.woff?": "/videoform/static/media/bootstrap-icons.6959d0d983ee318f8880.woff",
     "static/media/bootstrap-icons.woff2?": "/videoform/static/media/bootstrap-icons.b2e5aab643c6f0fd2da6.woff2",
     "static/media/logo.png": "/videoform/static/media/logo.9b82798ec2ffe923f745.png",
     "index.html": "/videoform/index.html",
-    "main.7d30c530.css.map": "/videoform/static/css/main.7d30c530.css.map",
-    "main.e0fcfd91.js.map": "/videoform/static/js/main.e0fcfd91.js.map"
+    "main.6820328a.css.map": "/videoform/static/css/main.6820328a.css.map",
+    "main.ad0e6582.js.map": "/videoform/static/js/main.ad0e6582.js.map"
   },
   "entrypoints": [
-    "static/css/main.7d30c530.css",
-    "static/js/main.e0fcfd91.js"
+    "static/css/main.6820328a.css",
+    "static/js/main.ad0e6582.js"
   ]
 }
