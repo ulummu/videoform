@@ -1,7 +1,7 @@
 {
   "name": "videoform",
   "version": "0.1.0",
-  "homepage": "http://ulummu.github.io/videoform/",
+  "homepage": "https://form3.undangandigimo.com",
   "private": true,
   "dependencies": {
     "@testing-library/jest-dom": "^5.16.5",
