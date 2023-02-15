@@ -88,10 +88,10 @@ export default function CardForm(props) {
   const [visibleFilter, setVisibleFilter] = useState(false);
   const [data, setData] = useState("");
   const [lBarcode, setLBarcode] = useState("");
-  const [noCatin, setNoCatin] = useState("");
+  // const [noCatin, setNoCatin] = useState("");
   const [dataResepsi, setDataResepsi] = useState("");
   const [dataGold, setDataGold] = useState(0);
-  const [temp, setTemp] = useState("");
+  // const [temp, setTemp] = useState("");
   const [filter, setFilter] = useState("");
 
   // const capitalize = (s) =>
@@ -182,11 +182,11 @@ export default function CardForm(props) {
           values.mapsResepsi +
           "%0a%0a11. Musik : " +
           values.musik +
-          "%0a%0aData Tambahan Paket Gold %0a%0a1. Love Story : " +
-          temp +
-          "%0a%0a2. Live Streaming : " +
-          values.live +
-          "%0a%0a3. Wedding Gift Video/Jpeg%0a%0a-Amplop Digital 1%0a-Nomor Rekening 1 : " +
+          // "%0a%0aData Tambahan Paket Gold %0a%0a1. Love Story : " +
+          // temp +
+          // "%0a%0a2. Live Streaming : " +
+          // values.live +
+          "%0a%0aWedding Gift Video/Jpeg%0a%0a-Amplop Digital 1%0a-Nomor Rekening 1 : " +
           values.nomorRekVideo +
           "%0a-Nama Bank 1 : " +
           values.namaBankVideo +
@@ -197,36 +197,18 @@ export default function CardForm(props) {
           "%0a-Nama Bank 2 : " +
           values.namaBankVideo2 +
           "%0a-Atas Nama 2 : " +
-          values.atasNamaVideo2 +
-          "%0a%0a-Kirim Hadiah%0a-Alamat : " +
-          values.alamatVideo +
-          "%0a-Nama Penerima : " +
-          values.namaPenerimaVideo +
-          "%0a-WA Konfirmasi Amplop/Penerima : " +
-          values.waKonfirmasiVideo +
-          // "%0a%0a3. Wedding Gift %0a%0a-Amplop Digital 1%0a-Nomor Rekening 1 : " +
-          // values.nomorRek +
-          // "%0a-Nama Bank 1 : " +
-          // values.namaBank +
-          // "%0a-Atas Nama 1 : " +
-          // values.atasNama +
-          // "%0a%0a-Amplop Digital 2%0a-Nomor Rekening 2 : " +
-          // values.nomorRek2 +
-          // "%0a-Nama Bank 2 : " +
-          // values.namaBank2 +
-          // "%0a-Atas Nama 2 : " +
-          // values.atasNama2 +
-          // "%0a%0a-Kirim Hadiah%0a-Alamat : " +
-          // values.alamat +
-          // "%0a-Nama Penerima : " +
-          // values.namaPenerima +
-          // "%0a-WA Konfirmasi Amplop/Penerima : " +
-          // values.waKonfirmasi +
-          "%0a%0a4. Reservasi Kehadiran via WA : " +
-          values.daftarHadir +
-          noCatin +
-          "%0a%0a5. QR Code RSVP : " +
-          values.rsvp;
+          values.atasNamaVideo2;
+        // "%0a%0a-Kirim Hadiah%0a-Alamat : " +
+        // values.alamatVideo +
+        // "%0a-Nama Penerima : " +
+        // values.namaPenerimaVideo +
+        // "%0a-WA Konfirmasi Amplop/Penerima : " +
+        // values.waKonfirmasiVideo;
+        // "%0a%0a4. Reservasi Kehadiran via WA : " +
+        // values.daftarHadir +
+        // noCatin +
+        // "%0a%0a5. QR Code RSVP : " +
+        // values.rsvp;
       } else {
         window.location.href =
           "https://api.whatsapp.com/send/?phone=6281215372042&text=" +
@@ -299,24 +281,24 @@ export default function CardForm(props) {
     event.stopPropagation();
     setValidated(true);
   };
-  const checkSpecialChar = (e) => {
-    var key = e.keyCode;
-    if (key === 53 || key === 55) {
-      e.preventDefault();
-      e.stopPropagation();
-    }
-    // if (/[$%&*?#@^]/.test(e.key)) {
-    //   e.preventDefault();
-    //   e.stopPropagation();
-    // }
-  };
+  // const checkSpecialChar = (e) => {
+  //   var key = e.keyCode;
+  //   if (key === 53 || key === 55) {
+  //     e.preventDefault();
+  //     e.stopPropagation();
+  //   }
+  // if (/[$%&*?#@^]/.test(e.key)) {
+  //   e.preventDefault();
+  //   e.stopPropagation();
+  // }
+  // };
   const handleInputChange = (e) => {
     const { name, value } = e.target;
     if (e.target.name === "daftarHadir" && e.target.value === "Iya") {
       setVisible(!visible);
     } else if (e.target.name === "daftarHadir" && e.target.value === "Tidak") {
       setVisible(false);
-      setNoCatin("");
+      // setNoCatin("");
     }
     if (e.target.name === "pakaiFilter" && e.target.value === "Iya") {
       setVisibleFilter(!visible);
@@ -329,15 +311,18 @@ export default function CardForm(props) {
       setVisibleBarcode(false);
       setLBarcode("");
     }
-    if (e.target.name === "paketWebsite" && e.target.value === "Gold") {
-      setVisibleGold(!visible);
-      setDataGold(1);
-    } else if (
-      e.target.name === "paketWebsite" &&
-      (e.target.value === "Silver" || e.target.value === "Bronze")
+    if (
+      (e.target.name === "paketVideo" && e.target.value === "Gambar/Jpeg") ||
+      (e.target.name === "paketVideo" &&
+        e.target.value === "Video 15/30 detik") ||
+      (e.target.name === "paketVideo" &&
+        e.target.value === "Paket Hemat 1 (Video 15/30 detik dan Jpeg)")
     ) {
       setVisibleGold(false);
       setDataGold(0);
+    } else {
+      setVisibleGold(!visible);
+      setDataGold(1);
     }
     if (e.target.name === "namaAcaraAkad" && e.target.value === "Lainnya") {
       setVisibleAkad(!visibleAkad);
@@ -365,14 +350,14 @@ export default function CardForm(props) {
     } else {
       setDataResepsi("%0a-Acara : " + values.namaAcaraResepsi);
     }
-    if (!!values.nomorCatin) {
-      setNoCatin("%0a-Nomor Calon Pengantin : " + values.nomorCatin);
-    }
+    // if (!!values.nomorCatin) {
+    //   setNoCatin("%0a-Nomor Calon Pengantin : " + values.nomorCatin);
+    // }
     if (!!values.linkBarcode) {
       setLBarcode("%0a-Link Barcode : " + values.linkBarcode);
     }
     if (dataGold === 1) {
-      setTemp(encodeURI(values.loveStory));
+      // setTemp(encodeURI(values.loveStory));
       setValues({
         ...values,
         [name]: value,
@@ -1285,7 +1270,7 @@ export default function CardForm(props) {
                 </Accordion>
                 {visibleGold && (
                   <>
-                    <label className="mt-1">
+                    {/* <label className="mt-1">
                       Data Tambahan Khusus Paket Gold
                     </label>
                     <Accordion flush>
@@ -1330,7 +1315,7 @@ export default function CardForm(props) {
                           </Form.Group>
                         </Accordion.Body>
                       </Accordion.Item>
-                    </Accordion>
+                    </Accordion> */}
                     <Accordion flush>
                       <Accordion.Item eventKey="0">
                         <Accordion.Header>
@@ -1494,7 +1479,7 @@ export default function CardForm(props) {
                         </Accordion.Body>
                       </Accordion.Item>
                     </Accordion>
-                    <Accordion flush>
+                    {/* <Accordion flush>
                       <Accordion.Item eventKey="0">
                         <Accordion.Header>
                           <i className="bi bi bi-whatsapp me-2"></i>
@@ -1570,7 +1555,7 @@ export default function CardForm(props) {
                           </Form.Group>
                         </Accordion.Body>
                       </Accordion.Item>
-                    </Accordion>
+                    </Accordion> */}
                   </>
                 )}
                 <Form.Label className="nb">
