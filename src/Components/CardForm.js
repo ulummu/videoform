@@ -216,11 +216,11 @@ export default function CardForm(props) {
           values.temaVideo +
           "%0a%0a2. Paket Undangan Video/Jpeg : " +
           values.paketVideo +
-          "%0a%0a3. Filter Instagram : " +
+          "%0a%0a3. Penggunaan Foto : " +
+          values.foto +
+          "%0a%0a4. Filter Instagram : " +
           values.pakaiFilter +
           filter +
-          "%0a%0a4. Penggunaan Foto : " +
-          values.foto +
           "%0a%0a5. Nama yang didahulukan : " +
           values.namaAwal +
           "%0a%0a6. Barcode : " +
@@ -489,6 +489,26 @@ export default function CardForm(props) {
                   </Form.Control.Feedback>
                 </Form.Group>
 
+                <Form.Group className="mb-2">
+                  <Form.Label className="labelForm">Foto Undangan</Form.Label>
+                  <Form.Select
+                    name="foto"
+                    value={values.foto}
+                    onChange={handleInputChange}
+                    required
+                  >
+                    <option value="" hidden>
+                      Pilih
+                    </option>
+                    <option value="Dengan Foto">Dengan Foto</option>
+                    <option value="Tanpa Foto">Tanpa Foto</option>
+                    <option value="Animasi">Animasi</option>
+                  </Form.Select>
+                  <Form.Control.Feedback type="invalid">
+                    Foto Belum Dipilih
+                  </Form.Control.Feedback>
+                </Form.Group>
+
                 <Form.Group>
                   <Form.Label className="mb-0">Filter Instagram</Form.Label>
                   <Form.Label className="labelFormFilter">
@@ -603,28 +623,6 @@ export default function CardForm(props) {
                     </Form.Group>
                   </Form.Group>
                 )}
-
-                <Form.Group className="mb-2">
-                  <Form.Label className="labelForm">
-                    Menggunakan Foto
-                  </Form.Label>
-                  <Form.Select
-                    name="foto"
-                    value={values.foto}
-                    onChange={handleInputChange}
-                    required
-                  >
-                    <option value="" hidden>
-                      Pilih
-                    </option>
-                    <option value="Dengan Foto">Dengan Foto</option>
-                    <option value="Tanpa Foto">Tanpa Foto</option>
-                    <option value="Animasi">Animasi</option>
-                  </Form.Select>
-                  <Form.Control.Feedback type="invalid">
-                    Foto Belum Dipilih
-                  </Form.Control.Feedback>
-                </Form.Group>
 
                 <Form.Group className="mb-2">
                   <Form.Label className="labelForm">
@@ -1238,20 +1236,17 @@ export default function CardForm(props) {
                   <Accordion.Item eventKey="0">
                     <Accordion.Header>
                       <i className="bi bi-music-note-beamed me-2"></i>
-                      <div className="labelForm">Musik</div>
+                      <div>Musik</div>
                     </Accordion.Header>
                     <Accordion.Body>
                       <Form.Group className="mb-2">
-                        <Form.Label className="labelForm">
-                          Backsound Undangan
-                        </Form.Label>
+                        <Form.Label>Backsound Undangan</Form.Label>
                         <Form.Control
-                          required
                           name="musik"
                           value={values.musik}
                           onChange={handleInputChange}
                           type="text"
-                          placeholder="Masukkan Link Youtube"
+                          placeholder="Link youtube dan detik lagu dimulai"
                         />
                         <Form.Control.Feedback type="invalid">
                           Musik Belum Diisi
