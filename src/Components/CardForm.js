@@ -585,6 +585,9 @@ export default function CardForm(props) {
                         <option value="Filter Wedding AE">
                           Filter Wedding AE
                         </option>
+                        <option value="Filter Wedding AE">
+                          Filter Wedding AF
+                        </option>
                         <option value="Filter Wedding 01">
                           Filter Wedding 01
                         </option>
